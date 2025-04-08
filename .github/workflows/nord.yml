@@ -9,7 +9,7 @@ on:
       video_url:
         description: 'Rumble Video URL'
         required: true
-        default: 'https://rumble.com/v6r0vz6-automate.html'
+        default: 'https://rumble.com/v6rplev-nutritional-object-detected.-initiating-contact..html'
 
 jobs:
   rumble-vpn:
@@ -159,7 +159,7 @@ jobs:
           }
 
           async function run() {
-              const videoUrl = process.argv[2] || "https://rumble.com/v6r0vz6-automate.html";
+              const videoUrl = process.argv[2] || "https://rumble.com/v6rplev-nutritional-object-detected.-initiating-contact..html";
               await visitRumble(videoUrl);
           }
 
@@ -170,7 +170,7 @@ jobs:
 
       - name: Run Puppeteer Script
         run: |
-          VIDEO_URL="${{ github.event.inputs.video_url || 'https://rumble.com/v6r0vz6-automate.html' }}"
+          VIDEO_URL="${{ github.event.inputs.video_url || 'https://rumble.com/v6rplev-nutritional-object-detected.-initiating-contact..html' }}"
           echo "Visiting: $VIDEO_URL"
           node scripts/rumble-visit.js "$VIDEO_URL" | tee rumble_script_output.log
 
