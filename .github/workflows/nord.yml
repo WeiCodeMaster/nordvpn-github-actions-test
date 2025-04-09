@@ -78,7 +78,7 @@ jobs:
               console.log("Reconnecting to a different VPN server...");
               try {
                   execSync("sudo nordvpn disconnect", { stdio: 'inherit' });
-                  await sleep(5000);
+                  await sleep(10000);
                   execSync("sudo nordvpn connect", { stdio: 'inherit' });
                   await sleep(10000);
                   const newIP = execSync("curl -s https://api64.ipify.org").toString().trim();
@@ -86,7 +86,7 @@ jobs:
                   return true;
               } catch (error) {
                   console.error("Failed to reconnect VPN:", error.message);
-                  return false;
+                  return reconnectVPN();
               }
           }
 
