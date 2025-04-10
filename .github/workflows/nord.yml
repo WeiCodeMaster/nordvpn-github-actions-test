@@ -42,7 +42,10 @@ jobs:
           sleep 5
           sudo nordvpn login --token "$NORDVPN_TOKEN"
           sudo nordvpn set technology nordlynx
-          sudo nordvpn connect
+          until sudo nordvpn connect; do
+            echo "NordVPN connection failed. Retrying in 10 seconds..."
+            sleep 10
+          done
           sleep 10
 
       - name: Install Puppeteer Dependencies
